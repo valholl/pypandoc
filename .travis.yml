@@ -1,9 +1,5 @@
 language: python
-sudo: false
-addons:
-  apt_packages:
-    - pandoc
-    - pandoc-citeproc
+sudo: true
 env:
   global:
     - PATH=$TRAVIS_BUILD_DIR/pandoc:$PATH
@@ -16,5 +12,9 @@ env:
     - TOXENV=flake8
 install:
   - travis_retry pip install tox
+before_script:
+  - sudo add-apt-repository ppa:marutter/c2d4u -y
+  - sudo apt-get update -q
+  - sudo apt-get install pandoc pandoc-citeproc
 script:
   - tox
