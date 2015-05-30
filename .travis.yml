@@ -3,6 +3,7 @@ sudo: false
 addons:
   apt_packages:
     - pandoc
+    - pandoc-citeproc
 env:
   global:
     - PATH=$TRAVIS_BUILD_DIR/pandoc:$PATH
